@@ -1,6 +1,7 @@
 package com.devlyon.dllist.dto;
 
 import com.devlyon.dllist.entities.Game;
+import com.devlyon.dllist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -11,7 +12,7 @@ public class GameMinDTO {
 	private String shortDescription;
 
 	public GameMinDTO() {
-		
+
 	}
 
 	public GameMinDTO(Game entity) {
@@ -20,6 +21,14 @@ public class GameMinDTO {
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+	}
+
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
 	}
 
 	public Long getId() {
@@ -41,7 +50,5 @@ public class GameMinDTO {
 	public String getShortDescription() {
 		return shortDescription;
 	}
-	
-	
-	
+
 }
